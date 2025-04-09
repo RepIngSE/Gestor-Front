@@ -1,0 +1,177 @@
+body {
+    overflow: hidden;
+  }
+
+.applicant{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+
+}
+
+.containerHome {
+    display: flex;
+    flex: 1;
+    justify-content:center;
+    align-items: center;
+}
+
+.container2 {
+    top: 10%; 
+    justify-content: center; 
+}
+
+.containerImage {
+    width: 100%; 
+    height: 90%;
+    opacity: 0.9; 
+    z-index: 9;
+}
+
+.circle_one {
+    bottom: 10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 119, 255, 0.15);
+    z-index: 6;
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position:absolute;
+}
+
+.circle_two {
+    width: 350px;
+    height: 350px;
+    background: rgb(255, 255, 255);
+    z-index: 8;
+    display:flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.rectangle-put {
+    width: 80px;
+    height: 200px;
+    top: 0px; 
+    background: rgba(0, 76, 255, 0.417);
+    z-index: 10;
+    border-radius: 0 0 0 0;
+    position:absolute; 
+}
+
+.taskTittle {
+    top:30%; 
+    position: absolute; 
+    color: rgba(5, 40, 122, 0.805);
+}
+
+.container3 {
+    align-items: start;
+    justify-content: start;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.createTask {
+    padding-top: 50px;
+    color: rgba(5, 40, 122, 0.805);
+    white-space: nowrap;
+    text-align: center; 
+    width: 80%;
+}
+
+.formPrincipal {
+    padding: 80px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 22px; 
+}
+
+.textoFormulario {
+    font-weight: 10;
+    font-size: 22px;
+}
+
+.formularioInput {
+    width: 100%;
+    height: 55px; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: 0.3s;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+.formularioText {
+    width: 100%;
+    height: 150px; 
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: 0.3s;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+.selectPrincipal {
+    display: flex;
+    gap: 22px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.selectPrincipal:focus-within {
+    margin-bottom: 90px; 
+}
+
+.selectForm {
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: "Arial", sans-serif;
+}
+
+.selectOption {
+    font-size: 16px;
+    font-family: "Arial", sans-serif;
+}
+
+.buttonCreate {
+    width: 100%;
+    height: 50px; 
+    padding: 12px;
+    background-color: rgba(5, 40, 122, 0.805);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgba(5, 40, 122, 0.805);
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.buttonCreate:hover {
+    background-color: #0057b3b8;
+    transform: scale(1.01); 
+}
