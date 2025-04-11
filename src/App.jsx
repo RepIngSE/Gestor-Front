@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import Principal from'./views/Panel_Principal/Principal.jsx'
 import Gestor from './views/Gestor/Gestor.jsx'
 import Admin from './views/Admin/Admin.jsx'
+import AdminArea from './views/Admin_Area/AdminArea.jsx'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Route path="/home" element={<Principal></Principal>}></Route>
       <Route path="/gestor" element={<Gestor></Gestor>}></Route>
       <Route path="/admin" element={<Admin></Admin>}></Route>
+      <Route path ="/adminArea" element ={<AdminArea></AdminArea>}></Route>
     </Routes>
   )
 }

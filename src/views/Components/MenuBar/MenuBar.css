@@ -1,0 +1,37 @@
+.MenuContainerLateralOpen{
+    width: 300px;
+    height: 100%;
+    background-color: #2A4C93;
+}
+
+.MenuContainerLateralClose{
+    width: 80px;
+    height: 100%;
+    background-color: #2A4C93;
+}
+
+.btn_menu_ha_open{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    text-align: start;
+    padding: 5px 28px;
+}
+
+.btn_menu_ha_close{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    text-align: start;
+    padding: 5px 28px;
+}
+
+.Icons_menu_bar{
+    color: #ffffff;
+}
