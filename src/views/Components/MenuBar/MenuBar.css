@@ -1,37 +1,61 @@
-.MenuContainerLateralOpen{
+.MenuContainerLateralOpen,
+.MenuContainerLateralClose {
+    display: flex;
+    flex-direction: column;
     width: 300px;
     height: 100%;
     background-color: #2A4C93;
+    transition: width 0.3s ease;
 }
 
-.MenuContainerLateralClose{
+.MenuContainerLateralClose {
     width: 80px;
-    height: 100%;
-    background-color: #2A4C93;
 }
 
-.btn_menu_ha_open{
+.Menu_container_1 {
+    width: 100%;
+    height: 50px;
+}
+
+.Menu_container_2 {
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_menu_ha_open,
+.btn_menu_ha_close,
+.btn_menu_ha_opc_open,
+.btn_menu_ha_opc_close {
+    display: flex;
+    align-items: center;
     background-color: transparent;
     outline: none;
     border: none;
     width: 100%;
     height: 50px;
-    align-items: center;
     text-align: start;
     padding: 5px 28px;
+    cursor: pointer;
+    gap: 10px;
 }
 
-.btn_menu_ha_close{
-    background-color: transparent;
-    outline: none;
-    border: none;
-    width: 100%;
-    height: 50px;
-    align-items: center;
-    text-align: start;
-    padding: 5px 28px;
-}
-
-.Icons_menu_bar{
+.Icons_menu_bar {
     color: #ffffff;
+}
+
+.btn_menu_ha_opc_open label,
+.btn_menu_ha_opc_close label {
+    margin: 0;
+    color: #ffffff;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+
+
+.Selected{
+    background-color: #367EC7;
 }
