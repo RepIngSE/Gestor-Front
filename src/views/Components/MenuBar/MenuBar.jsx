@@ -34,7 +34,7 @@ const MenuBar = ()=>{
                     <i className="fa-regular fa-chart-bar fa-xl Icons_menu_bar"></i>
                     {isOpen?<label>Dashboard principal</label>:''}
                 </button>
-                <button onClick={()=>{opcSelected(2,'/adminArea/principalTask')}} 
+                <button onClick={()=>{opcSelected(2,'/adminArea/newTask')}} 
                         className={`${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 2 ? "Selected" : ""}`}>
                     <i className="fa-regular fa-file-lines fa-xl Icons_menu_bar"></i>
                     {isOpen?<label>Create task</label>:''}
