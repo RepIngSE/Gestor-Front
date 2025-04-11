@@ -14,7 +14,7 @@ function App() {
       <Route path="/home" element={<Principal></Principal>}></Route>
       <Route path="/gestor" element={<Gestor></Gestor>}></Route>
       <Route path="/admin" element={<Admin></Admin>}></Route>
-      <Route path ="/adminArea" element ={<AdminArea></AdminArea>}></Route>
+      <Route path ="/adminArea/*" element ={<AdminArea></AdminArea>}></Route>
     </Routes>
   )
 }
