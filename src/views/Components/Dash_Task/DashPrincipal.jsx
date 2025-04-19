@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 const DashPrincipal = ()=>{
 
+    const [Tasks, setTask] = useState([{'id':1, 'Id_Status':'Pending', 'Cantidad': '2'}, {'id':2, 'Id_Status':'In Progress', 'Cantidad': '4'}, {'id':3, 'Id_Status':'New Task', 'Cantidad': '5'}, {'id':4, 'Id_Status':'Finish Task', 'Cantidad': '6'}]);
+
     const Navigate = useNavigate();
 
     const taskSelected = (view) =>{
@@ -16,7 +18,7 @@ const DashPrincipal = ()=>{
                 <div className='dashTaskHeader'>
                     <label className='tittleTask'> New Task </label>
                         <div className='cantTask cantTaskNew'>
-                            <label className='numTask'> # </label>
+                            <label className='numTask'> {Tasks.find(task => task.Id_Status === 'New Task')?.Cantidad || '#'} </label>
                         </div>
                 </div>
                 <div className='dashTaskBody'>
@@ -33,7 +35,7 @@ const DashPrincipal = ()=>{
             <div className='dashTaskHeader'>
                     <label className='tittleTask'> Pending Task </label>
                         <div className='cantTask cantTaskPending'>
-                            <label className='numTask'> # </label>
+                            <label className='numTask'> {Tasks.find(task => task.Id_Status === 'Pending')?.Cantidad || '#'} </label>
                         </div>
                 </div>
                 <div className='dashTaskBody'>
@@ -51,7 +53,7 @@ const DashPrincipal = ()=>{
                 <div className='dashTaskHeader'>
                     <label className='tittleTask'> Progress Task </label>
                         <div className='cantTask cantTaskProgress'>
-                            <label className='numTask'> # </label>
+                            <label className='numTask'> {Tasks.find(task => task.Id_Status === 'In Progress')?.Cantidad || '#'} </label>
                         </div>
                 </div>
                 <div className='dashTaskBody'>
@@ -68,7 +70,7 @@ const DashPrincipal = ()=>{
             <div className='dashTaskHeader'>
                     <label className='tittleTask'> Finish Task </label>
                         <div className='cantTask cantTaskFinish'>
-                            <label className='numTask'> # </label>
+                            <label className='numTask'> {Tasks.find(task => task.Id_Status === 'Finish Task')?.Cantidad || '#'} </label>
                         </div>
                 </div>
                 <div className='dashTaskBody'>

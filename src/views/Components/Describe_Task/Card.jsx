@@ -3,22 +3,23 @@ import { useState } from 'react';
 
 const CardTask = (props)=>{
 
-    const {type} = props; 
+    const {type, name, descrip, priority} = props; 
+
     const [isVisible, setisVisible] = useState(false)
     const changeVisible =() =>{setisVisible(!isVisible)}
 
     return(
         <div className = {`recTask ${type == 'New' && 'recTaskNew'} ${type == 'Pending' && 'recTaskPending'} ${type == 'Progress' && 'recTaskProgress'} ${type == 'Finish' && 'recTaskFinish'}`}>
             <div className = {`recPriority ${type == 'New' && 'recColorNew'} ${type == 'Pending' && 'recColorPending'} ${type == 'Progress' && 'recColorProgress'} ${type == 'Finish' && 'recColorFinish'}`}>
-                #
+                {priority}
             </div>
             <div className = 'recDescribe'>
                 <div className = 'taskHeader'> 
-                    <label className = 'textDescriptionCard titTask'> Tittle Task </label>
+                    <label className = 'textDescriptionCard titTask'> {name} </label>
                     <label className = 'textDescriptionCard typeTask'> {type} Task </label>
                 </div>
                 <div className = 'taskBody'>
-                    <label> Describe...</label>
+                    <label> {descrip}</label>
                 </div>
                     {type == 'New' &&
                         <div className = 'taskFooter'> 
