@@ -29,3 +29,19 @@
   .addUserButton:hover {
     background-color: #45a049;
   }
+  .taskTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .taskTable th, .taskTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .taskTable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }

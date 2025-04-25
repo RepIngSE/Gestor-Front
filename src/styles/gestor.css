@@ -1,0 +1,102 @@
+.gestor-container {
+    background-color: #f4f6f8;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+  }
+  
+  .gestor-card {
+    background-color: #fff;
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+  
+  .gestor-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .gestor-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .gestor-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .gestor-table th,
+  .gestor-table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e1e4e8;
+  }
+  
+  .gestor-table thead {
+    background-color: #f0f2f5;
+    color: #444;
+  }
+  
+  .priority {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .priority.low {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .priority.medium {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  .priority.high {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    padding: 6px 12px;
+    margin-right: 6px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-btn {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .edit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background-color: #a71d2a;
+  }
+  
+  .no-tasks {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+  }
+  
