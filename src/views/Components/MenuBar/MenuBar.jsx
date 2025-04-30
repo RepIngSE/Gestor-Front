@@ -30,17 +30,17 @@ const MenuBar = ()=>{
             </div>
             <div className='Menu_container_2'>
                 <button onClick={()=>{opcSelected(1,'/adminArea/principalTask')}} 
-                        className={`${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 1 ? "Selected" : ""}`}>
+                        className={`btn_menu ${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 1 ? "Selected" : ""}`}>
                     <i className="fa-regular fa-chart-bar fa-xl Icons_menu_bar"></i>
                     {isOpen?<label>Dashboard principal</label>:''}
                 </button>
-                <button onClick={()=>{opcSelected(2,'/adminArea/newTask')}} 
-                        className={`${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 2 ? "Selected" : ""}`}>
+                <button onClick={()=>{opcSelected(2,'/adminArea/createTask')}} 
+                        className={`btn_menu ${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 2 ? "Selected" : ""}`}>
                     <i className="fa-regular fa-file-lines fa-xl Icons_menu_bar"></i>
                     {isOpen?<label>Create task</label>:''}
                 </button>
                 <button onClick={()=>{opcSelected(3,'/adminArea/principalTask')}} 
-                        className={`${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 3 ? "Selected" : ""}`}>
+                        className={`btn_menu ${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 3 ? "Selected" : ""}`}>
                     <i className="fa-regular fa-user fa-xl Icons_menu_bar"></i>
                     {isOpen?<label>Profile</label>:''}
                 </button>

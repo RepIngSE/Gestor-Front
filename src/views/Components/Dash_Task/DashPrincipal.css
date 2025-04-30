@@ -6,36 +6,25 @@
     justify-content: center;
     gap: 60px;
     padding: 60px 40px; 
+    overflow: auto; 
+    box-sizing:border-box; 
+    flex:1;
 }
 .rec {
     height: auto;
     min-height: 350px;
+    max-height: 600px;
     width: auto;
     max-width: 800px;
+    min-width: 400px;
     flex: 1 1 calc(50% - 60px);
     box-sizing: border-box; 
     background-color: #f0f0f0; 
-    padding: 40px;
+    padding: 30px;
     border: 1px solid #ccc;
-    border-radius: 10px 10px 10px 10px;
-}
-.newTask {
-    background: rgba(255, 178, 178, 100);
-    border: 3px solid rgba(254, 112, 112, 100);
-}
-.pendingTask {
-    background: rgba(107, 219, 251, 100);
-    border: 3px solid rgba(40, 127, 152, 100);
-}
-.progressTask {
-    background: rgba(119, 212, 232, 100);
-    border: 3px solid rgba(50, 169, 195, 100);
-    margin-bottom: 120px;
-}
-.finishTask {
-    background: rgba(255, 220, 178, 100);
-    border: 3px solid rgba(213, 166, 109, 100);
-    margin-bottom: 120px;
+    border-radius: 10px 10px 10px 10px; 
+    display: flex;
+    flex-direction: column;
 }
 
 .tittleTask {
@@ -51,13 +40,6 @@
     flex-direction: row;
     margin-bottom: 30px;
 }
-.cantTask{
-    width: 130px;
-    height: 40px;
-    background: rgba(254, 112, 112, 100);
-    z-index: 40;
-    border-radius: 0 0 0 0;
-}
 
 .numTask{
     font-size: 20px;
@@ -68,23 +50,102 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    color: #ffffff;
+    color: #000000;
 }
 .dashTaskBody{
     display:flex; 
+    box-sizing: border-box;
 }
-.textCard{
-    width: auto;
-    height: auto;
-    background: rgba(254, 112, 112, 100);
-    z-index: 40;
-    border-radius: 0 0 0 0;
-}
+
 .textTask{
     font-size: 20px;
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 30px;
     display: flex;
-    color: #ffffff;
+    box-sizing: border-box;
+    color: #000000;
+    text-align:justify;
+}
+.footerCard {
+    flex:1; 
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding-top: 20px;
+}
+
+.newTask {
+    background: rgba(255, 178, 178, 100);
+    border: 3px solid rgba(254, 112, 112, 100);
+}
+
+.pendingTask {
+    background: rgba(107, 219, 251, 100);
+    border: 3px solid rgba(40, 127, 152, 100);
+}
+
+.progressTask {
+    background: rgba(119, 212, 232, 100);
+    border: 3px solid rgba(50, 169, 195, 100);
+}
+
+.finishTask {
+    background: rgba(255, 220, 178, 100);
+    border: 3px solid rgba(213, 166, 109, 100);
+}
+
+.cantTask{
+    width: 130px;
+    height: 40px;
+    z-index: 40;
+    border-radius: 0 0 0 0;
+}
+
+.cantTaskNew{
+    background: #fe7c7c;
+}
+
+.cantTaskPending{
+    background: #4fa9da;
+}
+
+.cantTaskProgress{
+    background: #32a8c3;
+}
+
+.cantTaskFinish{
+    background: #D5A66D;
+}
+
+.btnEnter {
+    color: #000000;
+    border:none; 
+    height:40px;
+    width: 130px;
+    cursor: pointer; 
+}
+
+.textCard{
+    width: 100%;
+    height: 180px;
+    z-index: 40;
+    border-radius: 0 0 0 0;
+    box-sizing: border-box;
+}
+
+.textCardNew, .hoverNew:hover{
+    background: #ec8c8c8a;
+}
+
+.textCardPending, .hoverPending:hover{
+    background: #4fa9da66;
+}
+
+.textCardProgress, .hoverProgress:hover{
+    background: #32a8c366;
+}
+
+.textCardFinish, .hoverFinish:hover{
+    background: #d5a66d62;
 }

@@ -59,3 +59,7 @@
 .Selected{
     background-color: #367EC7;
 }
+
+.btn_menu:hover{
+    background-color: #367EC7;
+}

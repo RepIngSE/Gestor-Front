@@ -10,6 +10,10 @@ import UpdateUserForm from './views/Gestor/UpdateUserForm.jsx';
 import DeleteUserModal from './views/Gestor/DeleteUserModal.jsx';
 import Profile from './views/Gestor/Profile.jsx';
 import ApplicantDashboard from './views/Gestor/ApplicantDashboard.jsx';
+import AdminCompany from './views/Admin_Company/AdminCompany.jsx'
+import Applicant from './views/Applicant/Applicant.jsx'
+import Troubleshooter from './views/Troubleshooter/Troubleshooter.jsx'
+
 
 function App() {
   return (
@@ -26,6 +30,11 @@ function App() {
       <Route path="/gestor/deleteUser" element={<DeleteUserModal></DeleteUserModal>}></Route>
       <Route path="/gestor/profile" element={<Profile></Profile>}></Route>
       <Route path="/gestor/applicantDashboard" element={<ApplicantDashboard></ApplicantDashboard>}></Route>
+      <Route path ="/adminArea/*" element ={<AdminArea></AdminArea>}></Route>
+      <Route path ="/adminCompany/*" element ={<AdminCompany></AdminCompany>}></Route>
+      <Route path ="/applicant/*" element ={<Applicant></Applicant>}></Route>
+      <Route path ="/troubleshooter/*" element ={<Troubleshooter></Troubleshooter>}></Route>
+
     </Routes>
   );
 }
