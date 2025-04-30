@@ -19,7 +19,7 @@ const DescribeTask = ()=>{
     return(
         <div className = 'describeTask'>
             {
-                describeTask.map (task => (<CardTask type = {param} name = {task.Name} descrip = {task.Description} priority = {task.Priority} ></CardTask>))
+                describeTask.map (task => (<CardTask type = {param} name = {task.Name} descrip = {task.Description} priority = {task.Priority} typeview = {"Dash Principal"} ></CardTask>))
             }
         </div>
     )
