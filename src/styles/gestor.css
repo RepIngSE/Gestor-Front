@@ -3,8 +3,15 @@
     padding: 40px 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
+    flex: 1; 
   }
-  
+  .gestor-principal{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+  }
+
   .gestor-card {
     background-color: #fff;
     max-width: 1000px;

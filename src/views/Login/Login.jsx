@@ -20,7 +20,7 @@ const Login = () => {
         password: password,
         documento: '123456789',
         apellido: 'Ramírez',
-        rol: 4 // Roles 
+        rol: 2 // Roles 
       };
   
       login(userData); // Guarda la sesión

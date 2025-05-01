@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../../styles/gestor.css'; // Asegúrate de tener este archivo
+import MenuBar from "../Components/MenuBar/MenuBar.jsx"
 
 const Gestor = () => {
   const [tasks, setTasks] = useState([]);
@@ -24,48 +25,52 @@ const Gestor = () => {
   };
 
   return (
-    <div className="gestor-container">
-      <div className="gestor-card">
-        <h1 className="gestor-title">Task Manager</h1>
-        <div className="gestor-table-wrapper">
-          <table className="gestor-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Priority</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tasks.length === 0 ? (
+    <div className = "gestor-principal">
+      <MenuBar></MenuBar>
+      <div className="gestor-container">
+        <div className="gestor-card">
+          <h1 className="gestor-title">Task Manager</h1>
+          <div className="gestor-table-wrapper">
+            <table className="gestor-table">
+              <thead>
                 <tr>
-                  <td colSpan="5" className="no-tasks">No tasks available</td>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Priority</th>
+                  <th>Actions</th>
                 </tr>
-              ) : (
-                tasks.map(task => (
-                  <tr key={task.id}>
-                    <td>{task.id}</td>
-                    <td>{task.title}</td>
-                    <td>{task.description}</td>
-                    <td>
-                      <span className={`priority ${task.priority.toLowerCase()}`}>
-                        {task.priority}
-                      </span>
-                    </td>
-                    <td>
-                      <button className="edit-btn" onClick={() => handleEdit(task.id)}>Edit</button>
-                      <button className="delete-btn" onClick={() => handleDelete(task.id)}>Delete</button>
-                    </td>
+              </thead>
+              <tbody>
+                {tasks.length === 0 ? (
+                  <tr>
+                    <td colSpan="5" className="no-tasks">No tasks available</td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+                ) : (
+                  tasks.map(task => (
+                    <tr key={task.id}>
+                      <td>{task.id}</td>
+                      <td>{task.title}</td>
+                      <td>{task.description}</td>
+                      <td>
+                        <span className={`priority ${task.priority.toLowerCase()}`}>
+                          {task.priority}
+                        </span>
+                      </td>
+                      <td>
+                        <button className="edit-btn" onClick={() => handleEdit(task.id)}>Edit</button>
+                        <button className="delete-btn" onClick={() => handleDelete(task.id)}>Delete</button>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
+    
   );
 };
 
