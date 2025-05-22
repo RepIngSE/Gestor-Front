@@ -27,13 +27,13 @@ const Login = () => {
   
       // Navega según el rol
       if (userData.rol === 1) {
-        navigate('/adminArea/principalTask');
+        navigate('/dashboardApplicant');
       } else if (userData.rol === 2) {
-        navigate('/adminArea/principalTask');
+        navigate('/dashboardApplicant');
       } else if (userData.rol === 3) {
-        navigate('/gestor');
+        navigate('/dashboardApplicant');
       } else if (userData.rol === 4) {
-        navigate('/adminArea/principalTask');
+        navigate('/dashboardApplicant');
       } else {
         navigate('/home');
       }

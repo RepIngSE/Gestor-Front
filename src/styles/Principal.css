@@ -212,3 +212,12 @@ body {
     background-color: #0057b3b8;
     transform: scale(1.01); 
 }
+
+.formularioInput {
+  outline: none;
+}
+
+.formularioInput:focus {
+  border-color: #084298;
+  box-shadow: 0 0 0 1px #084298;
+}
