@@ -10,8 +10,6 @@ import User from './views/User/User.jsx';
 import ProfileUser from './views/User/Profile.jsx';
 import DashboardApplicant from './views/Panel_Principal/DashboardApplicant.jsx';
 import AddUser from './views/User/AddUser.jsx';
-import DeleteUser from './views/User/DeleteUser.jsx';
-import UpdateUser from './views/User/UpdateUser.jsx';
 
 
 function App() {
@@ -28,8 +26,6 @@ function App() {
       <Route path ="/troubleshooter/*" element ={<Troubleshooter></Troubleshooter>}></Route>
       <Route path="/user" element={<User />} />
       <Route path="/user/add" element={<AddUser />} />
-      <Route path="/user/delete" element={<DeleteUser />} />
-      <Route path="/user/update" element={<UpdateUser />} />
       <Route path="/user/Profile" element={<ProfileUser />} />
       <Route path="/dashboardApplicant" element={<DashboardApplicant />} />
 
