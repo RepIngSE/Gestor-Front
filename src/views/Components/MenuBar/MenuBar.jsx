@@ -84,7 +84,7 @@ const MenuBar = ()=>{
                     <i className="fa-solid fa-check-double Icons_menu_bar"></i>
                     {isOpen?<label>Task Complete</label>:''}
                 </button>}
-                {canView('Profile') && <button onClick={()=>{opcSelected(8,'/profile')}} 
+                {canView('Profile') && <button onClick={()=>{opcSelected(8,ruta_definida[role]+'/profile')}} 
                         className={`btn_menu ${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 8 ? "Selected" : ""}`}>
                     <i className="fa-solid fa-user Icons_menu_bar"></i>
                     {isOpen?<label>Profile</label>:''}
