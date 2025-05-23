@@ -2,6 +2,7 @@ import '../../styles/Login.css';
 import { useNavigate } from 'react-router-dom';
 import SessionContext from '../../SessionContext';
 import { useContext, useState } from 'react';
+import { loginApi } from '../../Services/login';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -14,29 +15,33 @@ const Login = () => {
     const inicio = async (event) => {
       event.preventDefault();
   
-      // Ejemplo Api
-      const userData = {
-        username: username,
-        password: password,
-        documento: '123456789',
-        apellido: 'Ramírez',
-        rol: 4 // Roles 
-      };
-  
-      login(userData); // Guarda la sesión
+      try {
+        const userData = await loginApi(username, password); //no necesitas .json()
+        console.log("Respuesta del backend:", userData);
+        // Validar si el login fue exitoso
+        if (userData) {
 
-      // Navega según el rol
-      if (userData.rol === 1) {
-        navigate('/adminArea/principalTask');
-      } else if (userData.rol === 2) {
-        navigate('/adminCompany/principalTask');
-      } else if (userData.rol === 3) {
-        navigate('/dashboardApplicant');
-      } else if (userData.rol === 4) {
-        navigate('/troubleshooter');
-      } else {
-        navigate('/home');
-      }
+          login(userData); // Guarda la sesión
+          
+          // Navega según el rol
+          if (userData.role === 1) {
+            navigate('/adminArea/principalTask');
+          } else if (userData.role === 2) {
+            navigate('/adminArea/principalTask');
+          } else if (userData.role === 3) {
+            navigate('/dashboardApplicant');
+          } else if (userData.role === 4) {
+            navigate('/adminArea/principalTask');
+          } else {
+            navigate('/home');
+          }
+        } else {
+            alert('Datos incorrectos');
+        }
+      } catch (error) {
+        console.error('Error al autenticar:', error);
+        alert('Ocurrió un error al intentar ingresar');
+      } 
     };
 
     return (

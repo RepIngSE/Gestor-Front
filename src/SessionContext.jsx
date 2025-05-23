@@ -7,16 +7,16 @@ export const SessionProvider = (props) => {
 
   // Tomamos los valores del localStorage si existen
   const [isLogedIn, setIsLogedIn] = useState(() => localStorage.getItem('isLogedIn') === 'true');
-  const [rol, setRol] = useState(() => localStorage.getItem('user_rol') || null);
+  const [role, setRol] = useState(() => localStorage.getItem('user_rol') || null);
   const [name, setName] = useState(() => localStorage.getItem('user_name') || '');
   const [lastName, setLastName] = useState(() => localStorage.getItem('user_lastName') || '');
-  const [cedula, setCedula] = useState(() => localStorage.getItem('user_cedula') || '');
+  const [document, setCedula] = useState(() => localStorage.getItem('user_cedula') || '');
 
   // Establece los valores de los estados al loguearse 
   const login = (data) => {
-    setCedula(data.documento || '');
-    setRol(data.rol);
-    setName(data.username.toUpperCase());
+    setCedula(data.document || '');
+    setRol(data.role);
+    setName(data.username?.toUpperCase() || '');
     setLastName(data.apellido?.toUpperCase() || '');
     setIsLogedIn(true);
   };
@@ -37,8 +37,8 @@ export const SessionProvider = (props) => {
     } else {
       localStorage.removeItem('isLogedIn');
     }
-    if (rol) {
-      localStorage.setItem('user_rol', rol);
+    if (role) {
+      localStorage.setItem('user_rol', role);
     } else {
       localStorage.removeItem('user_rol');
     }
@@ -52,17 +52,17 @@ export const SessionProvider = (props) => {
     } else {
       localStorage.removeItem('user_lastName');
     }
-    if (cedula) {
-      localStorage.setItem('user_cedula', cedula);
+    if (document) {
+      localStorage.setItem('user_cedula', document);
     } else {
       localStorage.removeItem('user_cedula');
     }
-  }, [isLogedIn, rol, name, lastName, cedula]);
+  }, [isLogedIn, role, name, lastName, document]);
 
   const sessionContextValue = {
     isLogedIn,
-    rol,
-    cedula,
+    role,
+    document,
     name,
     lastName,
     login,

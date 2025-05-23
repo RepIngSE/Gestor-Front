@@ -1,29 +1,58 @@
 import './DescribeTask.css';
-import {useParams} from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import CardTask from './Card';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { DescribeTaskApi } from '../../../Services/Api_DescribeTask';
+import SessionContext from '../../../SessionContext';
 
-const DescribeTask = (props)=>{
+const DescribeTask = ({ typeview }) => {
+  const { param } = useParams();
+  console.log('🧭 Param:', param);
+  const { document } = useContext(SessionContext);
+  const [tasks, setTasks] = useState([]);
+  console.log('✅ DescribeTask componente montado');
 
-    const {typeview} = props
-    const [Tasks, setUsers] = useState([{'id':1, 'Name':'Create User', 'Description': 'Create the user Manuel', 'Priority': 1, 'Id_Status': 'New Task'}, {'id':5, 'Name':'Create User', 'Description': 'Create the user Camilo', 'Priority': 2, 'Id_Status': 'New Task'}, {'id':2, 'Name':'Installing Python', 'Description': 'Install python for the user David', 'Priority': 2, 'Id_Status': 'Pending'}, {'id':3, 'Name':'Chamge computer', 'Description': 'Chanqe equipment for the user Camilo', 'Priority': 3, 'Id_Status': 'In Progress'}, {'id':4, 'Name':'Access for SQL Server', 'Description': 'Access to SQL for Juan', 'Priority': 1, 'Id_Status': 'Finish Task'}]);
 
-    const paramMap = {
-        'New': 'New Task', 
-        'Pending': 'Pending',
-        'Progress': 'In Progress', 
-        'Finish': 'Finish Task'
-    }; 
-    const { param } = useParams()
-    const idStatus = paramMap[param];
-    const describeTask = Tasks.filter(task => task.Id_Status === idStatus)
-    return(
-        <div className = 'describeTask'>
-            {
-                describeTask.map (task => (<CardTask type = {param} name = {task.Name} descrip = {task.Description} priority = {task.Priority} typeview = {typeview} ></CardTask>))
-            }
-        </div>
-    )
-}
+  const paramMap = {
+    New: 'New Task',
+    Pending: 'Pending',
+    Progress: 'In Progress',
+    Finish: 'Finish Task',
+  };
 
-export default DescribeTask
+  const idStatus = paramMap[param];
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        //if (!document) return; // Espera a tener la cédula
+
+        const data = await DescribeTaskApi(document); // Aquí se pasa
+        setTasks(data);
+      } catch (error) {
+        console.error('Error al obtener tareas:', error);
+      }
+    };
+
+    fetchTasks();
+  }, [document]); // Se vuelve a ejecutar si cambia la cédula
+
+  const filteredTasks = tasks.filter(task => task.Id_Status === idStatus);
+
+  return (
+    <div className='describeTask'>
+      {filteredTasks.map(task => (
+        <CardTask
+          key={task.ID}
+          type={param}
+          name={task.NAME}
+          descrip={task.DESCRIPTION}
+          priority={task.PRIORITY}
+          typeview={typeview}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default DescribeTask;
