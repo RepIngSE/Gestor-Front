@@ -8,12 +8,13 @@ const MenuBar = ()=>{
     const [Selected, setSelected] = useState(1);
 
     const Navigate = useNavigate();
-
+    const {rol, logout} = useContext(SessionContext); 
     const toggleMenu = () => {
       setIsOpen(!isOpen);
     };
 
     const logOut = () =>{
+        logout()
         Navigate("/") 
     }
 
@@ -22,7 +23,7 @@ const MenuBar = ()=>{
         Navigate(view)
     }
 
-    const {rol} = useContext(SessionContext); 
+    
 
     // Permisos por rol
     const permisosPorRol = {
