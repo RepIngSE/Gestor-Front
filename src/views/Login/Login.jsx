@@ -20,7 +20,7 @@ const Login = () => {
         password: password,
         documento: '123456789',
         apellido: 'Ramírez',
-        rol: 1 // Roles 
+        rol: 4 // Roles 
       };
   
       login(userData); // Guarda la sesión
@@ -33,7 +33,7 @@ const Login = () => {
       } else if (userData.rol === 3) {
         navigate('/dashboardApplicant');
       } else if (userData.rol === 4) {
-        navigate('/dashTroubleshooter/principalTask');
+        navigate('/troubleshooter');
       } else {
         navigate('/home');
       }

@@ -12,13 +12,15 @@ const CardTask = (props)=>{
     const {rol} = useContext(SessionContext); 
     const PrermisosView = {
         "Dash Principal": ['Assign_New','Save_New','Employee_Assign_New','Employee_Assign_Pend','Start_Task','Employee_Assign_Pro','Initial_Date_Pro','Finish_Task','Employee_Assign_Fin','Initial_Date_Fin','Final_Date_Fin'],
-        "Manage Area": ['Area_Assign_New','Area_Assign_Pend','Employee_Assign_Pend','Area_Assign_Pro','Employee_Assign_Pro','Initial_Date_Pro']
+        "Manage Area": ['Area_Assign_New','Area_Assign_Pend','Employee_Assign_Pend','Area_Assign_Pro','Employee_Assign_Pro','Initial_Date_Pro'],
+        "tres": ['Employee_Assign_Pend','Area_Assign_Pend','Employee_Assign_Pro','Initial_Date_Pro']
     };
 
     // Permisos por rol
     const permisosPorRol = {
         1: ['Assign_New','Save_New','Employee_Assign_Pend','Employee_Assign_Pro','Initial_Date_Pro','Area_Assign_Pro','Employee_Assign_Fin','Initial_Date_Fin','Final_Date_Fin'],
         2: ['Assign_New','Area_Assign_Pro','Save_New','Area_Assign_New','Initial_Date_Pro','Area_Assign_Pend','Employee_Assign_Pend','Start_Task','Employee_Assign_Pro','Initial_Date_Pro','Finish_Task','Employee_Assign_Fin','Initial_Date_Fin','Final_Date_Fin'],
+        3: ['Employee_Assign_Pend','Area_Assign_Pend','Employee_Assign_Pro','Initial_Date_Pro'],
         4: ['Employee_Assign_Pend','Start_Task','Employee_Assign_Pro','Initial_Date_Pro','Finish_Task','Employee_Assign_Fin','Initial_Date_Fin','Final_Date_Fin']
     };
 

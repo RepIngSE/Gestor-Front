@@ -3,9 +3,6 @@ import '../../styles/Principal.css';
 
 const DashboardApplicant = () => (
   <div style={{ display: 'flex', minHeight: '100vh', width: '100vw', background: '#f4f6fa' }}>
-    <div style={{ height: '100vh' }}>
-      <MenuBar />
-    </div>
     <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
       <div style={{ width: '100%', maxWidth: 900, margin: '0 auto', display: 'flex', flexDirection: 'row', gap: 40, justifyContent: 'center', alignItems: 'center' }}>
         {/* Create Task Card */}

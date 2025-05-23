@@ -10,9 +10,9 @@ const Applicant = ()=>{
         <div className="containerDashPrAdArea">
             <MenuBar></MenuBar>
             <Routes>
-            <Route path="/" element={<Navigate to = "/applicant/principalTask"></Navigate>}></Route>
-            <Route path="/principalTask" element={<DashPrincipal></DashPrincipal>}></Route>
-            <Route path="/describeTask/:param" element={<DescribeTask></DescribeTask>}></Route>
+            <Route path="/" element={<Navigate to = "/dashboardApplicant/principalTask"></Navigate>}></Route>
+            <Route path="/principalTask" element={<DashPrincipal vista = "/dashboardApplicant/describeTask"></DashPrincipal>}></Route>
+            <Route path="/describeTask/:param" element={<DescribeTask typeview = "tres"></DescribeTask>}></Route>
             </Routes>
         </div>
     )

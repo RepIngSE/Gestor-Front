@@ -12,9 +12,11 @@ const AdminCompany = ()=>{
             <MenuBar></MenuBar>
             <Routes>
             <Route path="/" element={<Navigate to = "/adminCompany/principalTask"></Navigate>}></Route>
-            <Route path="/principalTask" element={<DashPrincipal></DashPrincipal>}></Route>
+            <Route path="/principalTask" element={<DashPrincipal vista = "/adminCompany/describeTask"></DashPrincipal>}></Route>
+            <Route path="/manageArea" element={<DashPrincipal vista = "/adminCompany/describeTaskCompany"></DashPrincipal>}></Route>
             <Route path="/manageUser" element={<User></User>}></Route>
-            <Route path="/describeTask/:param" element={<DescribeTask></DescribeTask>}></Route>
+            <Route path="/describeTask/:param" element={<DescribeTask typeview = "Dash Principal"></DescribeTask>}></Route>
+            <Route path="/describeTaskCompany/:param" element={<DescribeTask typeview = "Manage Area"></DescribeTask>}></Route>
             </Routes>
         </div>
     )

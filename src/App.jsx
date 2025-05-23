@@ -21,7 +21,7 @@ function App() {
       <Route path="/admin" element={<Admin></Admin>}></Route>
       <Route path="/adminArea/*" element={<AdminArea></AdminArea>}></Route>
       <Route path ="/adminCompany/*" element ={<AdminCompany></AdminCompany>}></Route>
-      <Route path ="/dashboardApplicant/*" element ={<DashboardApplicant></DashboardApplicant>}></Route>
+      <Route path ="/dashboardApplicant/*" element ={<Applicant></Applicant>}></Route>
       <Route path ="/troubleshooter/*" element ={<Troubleshooter></Troubleshooter>}></Route>
 
 

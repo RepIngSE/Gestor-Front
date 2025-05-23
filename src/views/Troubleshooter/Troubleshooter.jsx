@@ -11,8 +11,8 @@ const Troubleshooter = ()=>{
             <MenuBar></MenuBar>
             <Routes>
             <Route path="/" element={<Navigate to = "/troubleshooter/principalTask"></Navigate>}></Route>
-            <Route path="/principalTask" element={<DashPrincipal></DashPrincipal>}></Route>
-            <Route path="/describeTask/:param" element={<DescribeTask></DescribeTask>}></Route>
+            <Route path="/principalTask" element={<DashPrincipal vista = "/troubleshooter/describeTask"></DashPrincipal>}></Route>
+            <Route path="/describeTask/:param" element={<DescribeTask typeview = 'Dash Principal'></DescribeTask>}></Route>
             </Routes>
         </div>
     )

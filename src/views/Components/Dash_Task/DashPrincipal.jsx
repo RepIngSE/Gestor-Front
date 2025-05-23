@@ -14,6 +14,7 @@ const DashPrincipal = (props)=>{
     const permisosPorRol = {
         1: ['New Task', 'Pending', 'In Progress', 'Finish Task'],
         2: ['New Task', 'Pending', 'In Progress', 'Finish Task'],
+        3: ['Pending', 'In Progress', 'Finish Task'],
         4: ['Pending', 'In Progress', 'Finish Task']
     };
 
