@@ -98,10 +98,14 @@ const CardTask = (props)=>{
                     {/*Except Applicant / Troubleshooter - Etiqueta New */}
                     {type == 'New' &&
                         <div className = 'taskFooter'> 
+<<<<<<< HEAD
                             {canView('Assign_New') && <select className = 'btnTask recColorNew'> 
                                 <option value="">Assing</option>
                                     {datos_users.map((user) => (<option key={user.id} value={user.id}>{user.name}</option>))}
                                 </select> } 
+=======
+                            {canView('Assign_New') && <select className = 'btnTask recColorNew'> <option value=""> Assign </option> </select> } 
+>>>>>>> d74a47c74d1be524d8d23c38ce7fd140c647cdda
                             {canView('Save_New') && <button className = 'btnTask recColorNew' onClick={()=>changeVisible('New Task')}> Save </button> } 
                             {canView('Area_Assign_New') && <button className = 'btnTask recColorNew'> Area in charge </button>}
                     </div>}
