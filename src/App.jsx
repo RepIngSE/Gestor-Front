@@ -6,10 +6,7 @@ import AdminArea from './views/Admin_Area/AdminArea.jsx';
 import AdminCompany from './views/Admin_Company/AdminCompany.jsx'
 import Applicant from './views/Applicant/Applicant.jsx'
 import Troubleshooter from './views/Troubleshooter/Troubleshooter.jsx'
-import User from './views/User/User.jsx';
-import ProfileUser from './views/User/Profile.jsx';
-import DashboardApplicant from './views/Panel_Principal/DashboardApplicant.jsx';
-import AddUser from './views/User/AddUser.jsx';
+import Profile from './views/User/Profile.jsx';
 
 
 function App() {
@@ -23,8 +20,7 @@ function App() {
       <Route path ="/adminCompany/*" element ={<AdminCompany></AdminCompany>}></Route>
       <Route path ="/dashboardApplicant/*" element ={<Applicant></Applicant>}></Route>
       <Route path ="/troubleshooter/*" element ={<Troubleshooter></Troubleshooter>}></Route>
-
-
+      <Route path ="/profile/*" element ={<Profile></Profile>}></Route>  
     </Routes>
   );
 }
