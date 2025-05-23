@@ -1,4 +1,3 @@
-import MenuBar from '../Components/MenuBar/MenuBar';
 import '../../styles/Principal.css';
 import '../../styles/Profile.css';
 import React, { useContext, useRef, useState, useEffect } from 'react';
@@ -47,10 +46,6 @@ const Profile = () => {
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', width: '100vw' }}>
-      <div style={{ height: '100vh' }}>
-        <MenuBar />
-      </div>
-
       <div
         className='user-content'
         style={{

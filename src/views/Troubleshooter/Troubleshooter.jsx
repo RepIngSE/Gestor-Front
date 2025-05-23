@@ -2,6 +2,7 @@ import '../../styles/AdminArea.css'
 import MenuBar from "../Components/MenuBar/MenuBar.jsx"
 import DescribeTask from "../Components/Describe_Task/DescribeTask.jsx"
 import DashPrincipal from "../Components/Dash_Task/DashPrincipal.jsx"
+import Profile from '../User/Profile.jsx'
 import { Navigate, Route, Routes } from "react-router-dom"
 
 const Troubleshooter = ()=>{
@@ -10,9 +11,10 @@ const Troubleshooter = ()=>{
         <div className="containerDashPrAdArea">
             <MenuBar></MenuBar>
             <Routes>
-            <Route path="/" element={<Navigate to = "/troubleshooter/principalTask"></Navigate>}></Route>
-            <Route path="/principalTask" element={<DashPrincipal vista = "/troubleshooter/describeTask"></DashPrincipal>}></Route>
-            <Route path="/describeTask/:param" element={<DescribeTask typeview = 'Dash Principal'></DescribeTask>}></Route>
+                <Route path="/" element={<Navigate to = "/troubleshooter/principalTask"></Navigate>}></Route>
+                <Route path="/principalTask" element={<DashPrincipal vista = "/troubleshooter/describeTask"></DashPrincipal>}></Route>
+                <Route path="/describeTask/:param" element={<DescribeTask typeview = 'Dash Principal'></DescribeTask>}></Route>
+                <Route path ="/profile" element ={<Profile></Profile>}></Route>  
             </Routes>
         </div>
     )
