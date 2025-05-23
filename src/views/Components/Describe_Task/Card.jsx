@@ -18,7 +18,7 @@ const CardTask = (props)=>{
     }
 
 
-    datos_users = [
+    var datos_users = [
         {'id':1, 'name' :  'nombre 1'},
         {'id':2, 'name' :  'nombre 2'},
         {'id':3, 'name' :  'nombre 3'}
