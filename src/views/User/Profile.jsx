@@ -21,6 +21,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       try {
         const data = await getProfileApi(document);
+        
         setProfile({
           nameFull: `${data.NAME} ${data.LAST_NAME}`,
           email: `${data.EMAIL}`,
