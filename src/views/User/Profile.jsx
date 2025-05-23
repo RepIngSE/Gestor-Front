@@ -1,11 +1,42 @@
 import MenuBar from '../Components/MenuBar/MenuBar';
 import '../../styles/Principal.css';
 import '../../styles/Profile.css';
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState, useEffect } from 'react';
+import SessionContext from '../../SessionContext';
+import { getProfileApi } from '../../Services/Api_Profile';
 
 const Profile = () => {
   const [image, setImage] = useState(null);
   const fileInput = useRef();
+  const { document }= useContext(SessionContext)
+  const [profile, setProfile] = useState({
+    nameFull: '',
+    email: '',
+    phone: '',
+    rol: '',
+    area: '',
+  });
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const data = await getProfileApi(document);
+        setProfile({
+          nameFull: `${data.NAME} ${data.LAST_NAME}`,
+          email: `${data.EMAIL}`,
+          phone: `${data.PHONE}`,
+          rol: `${data.ROL}`,
+          area: `${data.AREA}`
+        });
+      } catch (error) {
+        console.error('❌ Error cargando perfil:', error);
+      }
+    };
+
+    if (document) {
+      fetchProfile();
+    }
+  }, [document]);
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -67,29 +98,31 @@ const Profile = () => {
             }}
           >
             <input
-              placeholder='Names'
-              className='formularioInput'
+              type="text"
+              value={profile.nameFull}
+              readOnly
               style={{ gridColumn: 'span 2', padding: 10, borderRadius: 8 }}
             />
-            <input placeholder='Position in the company' className='formularioInput' style={{ padding: 10, borderRadius: 8 }} />
-            <input placeholder='Rol' className='formularioInput' style={{ padding: 10, borderRadius: 8 }} />
-            <input placeholder='# of contact' className='formularioInput' style={{ padding: 10, borderRadius: 8 }} />
-            <input placeholder='Email' className='formularioInput' style={{ padding: 10, borderRadius: 8 }} />
-
-            <button
-              className='buttonCreate'
-              type='submit'
-              style={{
-                gridColumn: 'span 2',
-                backgroundColor: '#001f54',
-                color: 'white',
-                padding: 10,
-                borderRadius: 12,
-                marginTop: 10,
-              }}
-            >
-              Save
-            </button>
+            <input 
+              type="text"
+              value={profile.area}
+              readOnly
+              style={{ padding: 10, borderRadius: 8 }} />
+            <input 
+              type="text"
+              value={profile.rol}
+              readOnly
+              style={{ padding: 10, borderRadius: 8 }} />
+            <input 
+              type="text"
+              value={profile.phone}
+              readOnly
+              style={{ padding: 10, borderRadius: 8 }} />
+            <input
+              type="text"
+              value={profile.email}
+              readOnly
+              style={{ padding: 10, borderRadius: 8 }} />
           </form>
         </div>
       </div>

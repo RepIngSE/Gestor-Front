@@ -1,14 +1,30 @@
 import './DashPrincipal.css'
 import { useNavigate } from 'react-router-dom';
 import SessionContext from '../../../SessionContext';
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { DashPrincipalApi } from '../../../Services/Api_DashPrincipal';
 
 
 const DashPrincipal = (props)=>{
     const {vista} = props
-    const { rol } = useContext(SessionContext); 
+    const { role, document } = useContext(SessionContext); 
     const Navigate = useNavigate();
-    const [Tasks, setTask] = useState([{'id':1, 'Id_Status':'Pending', 'Cantidad': '2'}, {'id':2, 'Id_Status':'In Progress', 'Cantidad': '4'}, {'id':3, 'Id_Status':'New Task', 'Cantidad': '5'}, {'id':4, 'Id_Status':'Finish Task', 'Cantidad': '6'}]);
+    const [Tasks, setTask] = useState([]);
+
+    useEffect(() => {
+        const fetchTasks = async () => {
+          try { 
+            if (!document) return; // Espera a tener la cédula
+    
+            const data = await DashPrincipalApi(document); // Aquí se pasa
+            setTask(data);
+          } catch (error) {
+            console.error('Error al obtener tareas:', error);
+          }
+        };
+    
+        fetchTasks();
+    }, [document]);
 
     // Permisos por rol
     const permisosPorRol = {
@@ -19,7 +35,7 @@ const DashPrincipal = (props)=>{
     };
 
     // Verifica si el rol del usuario tiene permiso para ver una sección específica
-    const canView = (section) => permisosPorRol[rol]?.includes(section);
+    const canView = (section) => permisosPorRol[role]?.includes(section);
 
     const taskSelected = (view) =>{
         var ruta = vista+ view
@@ -33,7 +49,7 @@ const DashPrincipal = (props)=>{
                     <div className='dashTaskHeader'>
                         <label className='tittleTask'> New Task </label>
                             <div className='cantTask cantTaskNew'>
-                                <label className='numTask'> {Tasks.find(task => task.Id_Status === 'New Task')?.Cantidad || '#'} </label>
+                                <label className='numTask'> {Tasks.find(task => task.ID_STATUS === 3)?.cantidad || '#'} </label>
                             </div>
                     </div>
                     <div className='dashTaskBody'>
@@ -53,7 +69,7 @@ const DashPrincipal = (props)=>{
                 <div className='dashTaskHeader'>
                         <label className='tittleTask'> Pending Task </label>
                             <div className='cantTask cantTaskPending'>
-                                <label className='numTask'> {Tasks.find(task => task.Id_Status === 'Pending')?.Cantidad || '#'} </label>
+                                <label className='numTask'> {Tasks.find(task => task.ID_STATUS === 1)?.cantidad || '#'} </label>
                             </div>
                     </div>
                     <div className='dashTaskBody'>
@@ -73,7 +89,7 @@ const DashPrincipal = (props)=>{
                     <div className='dashTaskHeader'>
                         <label className='tittleTask'> Progress Task </label>
                             <div className='cantTask cantTaskProgress'>
-                                <label className='numTask'> {Tasks.find(task => task.Id_Status === 'In Progress')?.Cantidad || '#'} </label>
+                                <label className='numTask'> {Tasks.find(task => task.ID_STATUS === 2)?.cantidad || '#'} </label>
                             </div>
                     </div>
                     <div className='dashTaskBody'>
@@ -93,7 +109,7 @@ const DashPrincipal = (props)=>{
                 <div className='dashTaskHeader'>
                         <label className='tittleTask'> Finish Task </label>
                             <div className='cantTask cantTaskFinish'>
-                                <label className='numTask'> {Tasks.find(task => task.Id_Status === 'Finish Task')?.Cantidad || '#'} </label>
+                                <label className='numTask'> {Tasks.find(task => task.ID_STATUS === 1)?.cantidad || '#'} </label>
                             </div>
                     </div>
                     <div className='dashTaskBody'>

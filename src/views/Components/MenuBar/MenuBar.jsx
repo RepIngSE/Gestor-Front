@@ -8,7 +8,7 @@ const MenuBar = ()=>{
     const [Selected, setSelected] = useState(1);
 
     const Navigate = useNavigate();
-    const {rol, logout} = useContext(SessionContext); 
+    const {role, logout} = useContext(SessionContext); 
     const toggleMenu = () => {
       setIsOpen(!isOpen);
     };

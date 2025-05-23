@@ -7,17 +7,14 @@ import SessionContext from '../../../SessionContext';
 
 const DescribeTask = ({ typeview }) => {
   const { param } = useParams();
-  console.log('🧭 Param:', param);
   const { document } = useContext(SessionContext);
   const [tasks, setTasks] = useState([]);
-  console.log('✅ DescribeTask componente montado');
-
 
   const paramMap = {
-    New: 'New Task',
-    Pending: 'Pending',
-    Progress: 'In Progress',
-    Finish: 'Finish Task',
+    New: 3/*'New Task'*/,
+    Pending: 1/*'Pending'*/,
+    Progress: 2 /*'In Progress'*/,
+    Finish: 4/*'Finish Task'*/
   };
 
   const idStatus = paramMap[param];
@@ -25,10 +22,11 @@ const DescribeTask = ({ typeview }) => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        //if (!document) return; // Espera a tener la cédula
+        if (!document) return; // Espera a tener la cédula
 
         const data = await DescribeTaskApi(document); // Aquí se pasa
         setTasks(data);
+
       } catch (error) {
         console.error('Error al obtener tareas:', error);
       }
@@ -37,7 +35,7 @@ const DescribeTask = ({ typeview }) => {
     fetchTasks();
   }, [document]); // Se vuelve a ejecutar si cambia la cédula
 
-  const filteredTasks = tasks.filter(task => task.Id_Status === idStatus);
+  const filteredTasks = tasks.filter(task => task.ID_STATUS === idStatus);
 
   return (
     <div className='describeTask'>

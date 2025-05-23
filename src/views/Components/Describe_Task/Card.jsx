@@ -1,21 +1,57 @@
 import './DescribeTask.css';
 import { useState, useContext } from 'react';
 import SessionContext from '../../../SessionContext';
+import { updateTaskApi, getUsersForRol } from '../../../Services/Apis_Cards';
 
 const CardTask = (props)=>{
 
     const {type, name, descrip, priority, typeview} = props; 
     const [titulo, settitulo] = useState('')
-    const [isVisible, setisVisible] = useState(false)
+    const { role, document } = useContext(SessionContext);
+    const [isVisible, setisVisible, showAssign, setShowAssign] = useState(false)
     const changeVisible =(permiso) =>{
-        if (notify_rol[rol]?.includes(permiso)) {
+        if (notify_rol[role]?.includes(permiso)) {
             settitulo(permiso)
         setisVisible(!isVisible);
     }
     
     }
 
-    const {rol} = useContext(SessionContext); 
+    
+     // Mostrar el selector y cargar usuarios
+    const assignClick = async () => {
+        setShowAssign((prev) => !prev);
+
+        if (!showAssign) {
+        try {
+            const userList = await getUsersForRol(document); // Cambia 2 por el rol que necesites
+            setUsers(userList);
+        } catch (err) {
+            console.error('Error al cargar usuarios:', err);
+        }
+        }
+    };
+
+    //Guardar la informacion 
+    const UpdateSave = async () => {
+        if (!selectedUser) {
+            alert('Selecciona un usuario');
+            return;
+        }
+
+        try {
+            await updateTaskApi(id, {
+                USER_IN_CHARGE: selectedUser,
+                ID_STATUS: 1, // o el estado que corresponda
+            });
+            alert('✅ Tarea actualizada correctamente');
+            setShowAssign(false);
+        } catch (error) {
+            console.error('Error al actualizar tarea:', error);
+            alert('❌ Error al actualizar la tarea');
+        }
+    };
+
     const PrermisosView = {
         "Dash Principal": ['Assign_New','Save_New','Employee_Assign_New','Employee_Assign_Pend','Start_Task','Employee_Assign_Pro','Initial_Date_Pro','Finish_Task','Employee_Assign_Fin','Initial_Date_Fin','Final_Date_Fin'],
         "Manage Area": ['Area_Assign_New','Area_Assign_Pend','Employee_Assign_Pend','Area_Assign_Pro','Employee_Assign_Pro','Initial_Date_Pro'],
@@ -37,7 +73,7 @@ const CardTask = (props)=>{
         4:['salir','Progress Task','Finish Task']
     }
 
-    const canView = (section) => permisosPorRol[rol]?.includes(section) && PrermisosView[typeview]?.includes(section);
+    const canView = (section) => permisosPorRol[role]?.includes(section) && PrermisosView[typeview]?.includes(section);
 
 
     return(
@@ -88,7 +124,7 @@ const CardTask = (props)=>{
                 <div className = 'NotificationHeader'>
                     <label> {titulo} </label>
                 </div>
-                    <textarea className = 'NotificationBody'> Comment.. </textarea>
+                    <textarea className = 'NotificationBody' value="Comment.." readOnly />
                 <div className = 'NotificationFooter'>
                     <button className = 'btnNotification' onClick = {()=>changeVisible('salir')}> Notify </button>
                 </div>

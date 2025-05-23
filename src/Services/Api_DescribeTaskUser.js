@@ -1,8 +1,8 @@
 import { API_URL } from "./api_url";
 
-export async function DescribeTaskApi(document) {
+export async function DescribeTaskApiUser(document) {
   try {
-        const res = await fetch(`${API_URL}/task/user/${(document)}/area-tasks`, {
+        const res = await fetch(`${API_URL}/task/user/${(document)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
