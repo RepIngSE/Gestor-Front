@@ -4,7 +4,8 @@ import SessionContext from '../../../SessionContext';
 import React, { useState, useContext } from "react";
 
 
-const DashPrincipal = ()=>{
+const DashPrincipal = (props)=>{
+    const {vista} = props
     const { rol } = useContext(SessionContext); 
     const Navigate = useNavigate();
     const [Tasks, setTask] = useState([{'id':1, 'Id_Status':'Pending', 'Cantidad': '2'}, {'id':2, 'Id_Status':'In Progress', 'Cantidad': '4'}, {'id':3, 'Id_Status':'New Task', 'Cantidad': '5'}, {'id':4, 'Id_Status':'Finish Task', 'Cantidad': '6'}]);
@@ -20,7 +21,8 @@ const DashPrincipal = ()=>{
     const canView = (section) => permisosPorRol[rol]?.includes(section);
 
     const taskSelected = (view) =>{
-        Navigate(view)
+        var ruta = vista+ view
+        Navigate(ruta)
     }
 
     return(
@@ -39,7 +41,7 @@ const DashPrincipal = ()=>{
                         </div>
                     </div>
                     <div className = 'footerCard'>
-                        <button onClick={()=>{taskSelected('/adminCompany/describeTask/New')}} 
+                        <button onClick={()=>{taskSelected("/New")}} 
                             className = 'btnEnter cantTaskNew hoverNew'> Enter </button>
                     </div>
                 </div>
@@ -59,7 +61,7 @@ const DashPrincipal = ()=>{
                         </div>
                     </div>
                     <div className = 'footerCard'>
-                        <button onClick={()=>{taskSelected('/adminCompany/describeTask/Pending')}} 
+                        <button onClick={()=>{taskSelected('/Pending')}} 
                             className = 'btnEnter cantTaskPending hoverPending'> Enter </button>
                     </div>
                 </div>
@@ -79,7 +81,7 @@ const DashPrincipal = ()=>{
                         </div>
                     </div>
                     <div className = 'footerCard'>
-                        <button  onClick={()=>{taskSelected('/adminCompany/describeTask/Progress')}} 
+                        <button  onClick={()=>{taskSelected('/Progress')}} 
                             className = 'btnEnter cantTaskProgress hoverProgress'> Enter </button>
                     </div>
                 </div>
@@ -99,7 +101,7 @@ const DashPrincipal = ()=>{
                         </div>
                     </div>
                     <div className = 'footerCard'>
-                        <button  onClick={()=>{taskSelected('/adminCompany/describeTask/Finish')}} 
+                        <button  onClick={()=>{taskSelected('/Finish')}} 
                             className = 'btnEnter cantTaskFinish hoverFinish' > Enter </button>
                     </div>
                 </div>

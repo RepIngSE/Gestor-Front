@@ -20,25 +20,25 @@ const Login = () => {
         password: password,
         documento: '123456789',
         apellido: 'Ramírez',
-        rol: 2 // Roles 
+        rol: 1 // Roles 
       };
   
       login(userData); // Guarda la sesión
-  
+
       // Navega según el rol
       if (userData.rol === 1) {
-        navigate('/dashboardApplicant');
+        navigate('/adminArea/principalTask');
       } else if (userData.rol === 2) {
-        navigate('/dashboardApplicant');
+        navigate('/adminCompany/principalTask');
       } else if (userData.rol === 3) {
         navigate('/dashboardApplicant');
       } else if (userData.rol === 4) {
-        navigate('/dashboardApplicant');
+        navigate('/dashTroubleshooter/principalTask');
       } else {
         navigate('/home');
       }
     };
-  
+
     return (
       <div className='principalContainer'>
         <div className="circle one"></div>

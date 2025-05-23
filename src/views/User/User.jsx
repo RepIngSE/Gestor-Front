@@ -36,9 +36,6 @@ const User = () => {
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', width: '100vw' }}>
-      <div style={{ height: '100vh' }}>
-        <MenuBar />
-      </div>
       <div className='user-content' style={{ flex: 1, background: '#f4f6fa', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', padding: 24 }}>
         <div style={{ width: '100%', maxWidth: 1100, background: '#fff', borderRadius: 16, boxShadow: '0 2px 16px rgba(0,0,0,0.07)', padding: 24, display: 'flex', gap: 24 }}>
           {/* Tabla de usuarios */}

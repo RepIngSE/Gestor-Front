@@ -3,8 +3,9 @@ import {useParams} from "react-router-dom";
 import CardTask from './Card';
 import { useState, useEffect } from 'react';
 
-const DescribeTask = ()=>{
+const DescribeTask = (props)=>{
 
+    const {typeview} = props
     const [Tasks, setUsers] = useState([{'id':1, 'Name':'Create User', 'Description': 'Create the user Manuel', 'Priority': 1, 'Id_Status': 'New Task'}, {'id':5, 'Name':'Create User', 'Description': 'Create the user Camilo', 'Priority': 2, 'Id_Status': 'New Task'}, {'id':2, 'Name':'Installing Python', 'Description': 'Install python for the user David', 'Priority': 2, 'Id_Status': 'Pending'}, {'id':3, 'Name':'Chamge computer', 'Description': 'Chanqe equipment for the user Camilo', 'Priority': 3, 'Id_Status': 'In Progress'}, {'id':4, 'Name':'Access for SQL Server', 'Description': 'Access to SQL for Juan', 'Priority': 1, 'Id_Status': 'Finish Task'}]);
 
     const paramMap = {
@@ -19,7 +20,7 @@ const DescribeTask = ()=>{
     return(
         <div className = 'describeTask'>
             {
-                describeTask.map (task => (<CardTask type = {param} name = {task.Name} descrip = {task.Description} priority = {task.Priority} typeview = {"Dash Principal"} ></CardTask>))
+                describeTask.map (task => (<CardTask type = {param} name = {task.Name} descrip = {task.Description} priority = {task.Priority} typeview = {typeview} ></CardTask>))
             }
         </div>
     )
