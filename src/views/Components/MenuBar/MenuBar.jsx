@@ -8,12 +8,13 @@ const MenuBar = ()=>{
     const [Selected, setSelected] = useState(1);
 
     const Navigate = useNavigate();
-
+    const {rol, logout} = useContext(SessionContext); 
     const toggleMenu = () => {
       setIsOpen(!isOpen);
     };
 
     const logOut = () =>{
+        logout()
         Navigate("/") 
     }
 
@@ -22,7 +23,6 @@ const MenuBar = ()=>{
         Navigate(view)
     }
 
-    const {role} = useContext(SessionContext); 
 
     // Permisos por rol
     const permisosPorRol = {
@@ -61,32 +61,32 @@ const MenuBar = ()=>{
                 </button>}
                 {canView('Manage Area') && <button onClick={()=>{opcSelected(3,ruta_definida[role]+'/manageArea')}} 
                         className={`btn_menu ${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 3 ? "Selected" : ""}`}>
-                    <i className="fa-regular fa-user fa-xl Icons_menu_bar"></i>
+                    <i className="fa-solid fa-people-roof Icons_menu_bar"></i>
                     {isOpen?<label>Manage Area</label>:''}
                 </button>}
                 {canView('Manage User') && <button onClick={()=>{opcSelected(4,ruta_definida[role]+'/manageUser')}} 
                         className={`btn_menu ${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 4 ? "Selected" : ""}`}>
-                    <i className="fa-regular fa-user fa-xl Icons_menu_bar"></i>
+                    <i className="fa-solid fa-users Icons_menu_bar"></i>
                     {isOpen?<label>Manage User</label>:''}
                 </button>}
                 {canView('Task Pending') && <button onClick={()=>{opcSelected(5,ruta_definida[role]+'/describeTask/Pending')}} 
                         className={`btn_menu ${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 5 ? "Selected" : ""}`}>
-                    <i className="fa-regular fa-user fa-xl Icons_menu_bar"></i>
+                    <i className="fa-solid fa-hourglass-half Icons_menu_bar"></i>
                     {isOpen?<label>Task Pending</label>:''}
                 </button>}
                 {canView('Task In Progress') && <button onClick={()=>{opcSelected(6,ruta_definida[role]+'/describeTask/Progress')}} 
                         className={`btn_menu ${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 6 ? "Selected" : ""}`}>
-                    <i className="fa-regular fa-user fa-xl Icons_menu_bar"></i>
+                    <i className="fa-solid fa-spinner Icons_menu_bar"></i>
                     {isOpen?<label>Task In Progress</label>:''}
                 </button>}
                 {canView('Task Complete') && <button onClick={()=>{opcSelected(7,ruta_definida[role]+'/describeTask/Finish')}} 
                         className={`btn_menu ${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 7 ? "Selected" : ""}`}>
-                    <i className="fa-regular fa-user fa-xl Icons_menu_bar"></i>
+                    <i className="fa-solid fa-check-double Icons_menu_bar"></i>
                     {isOpen?<label>Task Complete</label>:''}
                 </button>}
-                {canView('Profile') && <button onClick={()=>{opcSelected(8,ruta_definida[role]+'/principalTask')}} 
+                {canView('Profile') && <button onClick={()=>{opcSelected(8,'/profile')}} 
                         className={`btn_menu ${isOpen ? "btn_menu_ha_opc_open" : "btn_menu_ha_opc_close"} ${Selected == 8 ? "Selected" : ""}`}>
-                    <i className="fa-regular fa-user fa-xl Icons_menu_bar"></i>
+                    <i className="fa-solid fa-user Icons_menu_bar"></i>
                     {isOpen?<label>Profile</label>:''}
                 </button>}
             </div>

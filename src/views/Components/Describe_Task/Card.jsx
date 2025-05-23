@@ -5,9 +5,15 @@ import SessionContext from '../../../SessionContext';
 const CardTask = (props)=>{
 
     const {type, name, descrip, priority, typeview} = props; 
-
+    const [titulo, settitulo] = useState('')
     const [isVisible, setisVisible] = useState(false)
-    const changeVisible =() =>{setisVisible(!isVisible)}
+    const changeVisible =(permiso) =>{
+        if (notify_rol[rol]?.includes(permiso)) {
+            settitulo(permiso)
+        setisVisible(!isVisible);
+    }
+    
+    }
 
     const {rol} = useContext(SessionContext); 
     const PrermisosView = {
@@ -23,6 +29,13 @@ const CardTask = (props)=>{
         3: ['Employee_Assign_Pend','Area_Assign_Pend','Employee_Assign_Pro','Initial_Date_Pro'],
         4: ['Employee_Assign_Pend','Start_Task','Employee_Assign_Pro','Initial_Date_Pro','Finish_Task','Employee_Assign_Fin','Initial_Date_Fin','Final_Date_Fin']
     };
+
+    const notify_rol = {
+        1:['New Task','salir'],
+        2:['New Task','salir', 'Progress Task','Finish Task'],
+        3:['salir'],
+        4:['salir','Progress Task','Finish Task']
+    }
 
     const canView = (section) => permisosPorRol[rol]?.includes(section) && PrermisosView[typeview]?.includes(section);
 
@@ -44,14 +57,14 @@ const CardTask = (props)=>{
                     {type == 'New' &&
                         <div className = 'taskFooter'> 
                             {canView('Assign_New') && <button className = 'btnTask recColorNew'> Assign </button> } 
-                            {canView('Save_New') && <button className = 'btnTask recColorNew' onClick={changeVisible}> Save </button> } 
+                            {canView('Save_New') && <button className = 'btnTask recColorNew' onClick={()=>changeVisible('New Task')}> Save </button> } 
                             {canView('Area_Assign_New') && <button className = 'btnTask recColorNew'> Area in charge </button>}
                     </div>}
 
                     {type == 'Pending' &&
                         <div className = 'taskFooter'> 
                             {canView('Employee_Assign_Pend') && <button className = 'btnTask recColorPending'> Employee in charge </button> } 
-                            {canView('Start_Task') && <button className = 'btnTask recColorPending'> Start </button>}
+                            {canView('Start_Task') && <button className = 'btnTask recColorPending' onClick={()=>changeVisible('Progress Task')}> Start </button>}
                             {canView('Area_Assign_Pend') && <button className = 'btnTask recColorPending'> Area in charge </button>}
                     </div>}
 
@@ -59,7 +72,7 @@ const CardTask = (props)=>{
                         <div className = 'taskFooter'> 
                             {canView('Employee_Assign_Pro') && <button className = 'btnTask recColorProgress'> Employee in charge </button>}
                             {canView('Initial_Date_Pro') && <button className = 'btnTask recColorProgress'> Initial Date </button>}
-                            {canView('Finish_Task') && <button className = 'btnTask recColorProgress'> Finish </button>}
+                            {canView('Finish_Task') && <button className = 'btnTask recColorProgress' onClick={()=>changeVisible('Finish Task')}> Finish </button>}
                             {canView('Area_Assign_Pro') && <button className = 'btnTask recColorPending'> Area in charge </button>}
                     </div>}
 
@@ -73,11 +86,11 @@ const CardTask = (props)=>{
         <div className = {isVisible?'Available':'notAvailable'}>
             <div className = 'recFormNotification'>
                 <div className = 'NotificationHeader'>
-                    <label> New Task </label>
+                    <label> {titulo} </label>
                 </div>
                     <textarea className = 'NotificationBody'> Comment.. </textarea>
                 <div className = 'NotificationFooter'>
-                    <button className = 'btnNotification' onClick = {changeVisible}> Notify </button>
+                    <button className = 'btnNotification' onClick = {()=>changeVisible('salir')}> Notify </button>
                 </div>
             </div>
         </div>
